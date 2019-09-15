@@ -49,6 +49,10 @@ img {
 }
 
 /* User Info Container*/
+header {
+  display: flex;
+}
+
 .userinfo-header {
   margin-top: 20px;
   display: flex;
@@ -59,7 +63,7 @@ img {
 header .profile-name {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 
 header .profile-name p {
@@ -75,12 +79,47 @@ header .profile-name p {
 
 .user-stats p {
   color: #666;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .user-stats h3 {
   text-align: center;
 }
+
+.user-follower {
+  margin-right: 20px;
+}
+
+.user-following {
+  margin-right: 20px;
+}
+
+/* START OF Footer */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin-top: 20px;
+  width: 100%;
+  height: 6em;
+  background-color: #333333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer .social-links {
+  display: flex;
+  top: 20px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.footer .url {
+  margin-left: 20px;
+}
+
+/* END OF FOOTER */
 
 /* Text Styles*/
 .x-large {

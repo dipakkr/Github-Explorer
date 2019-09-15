@@ -5,6 +5,7 @@ import Navigation from '../../components/layout/NavBar';
 import User from '../../containers/UserInfo/UserInfo';
 
 import Home from '../Home/Home';
+import Footer from '../../components/layout/Foooter';
 
 function Blog() {
   return <h2> Blog </h2>;
@@ -26,6 +27,7 @@ function App() {
             <Route path='/blog' component={Blog} />
           </Switch>
         </div>
+        <Footer />
       </div>
     </Router>
   );

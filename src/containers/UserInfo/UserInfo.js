@@ -3,12 +3,14 @@ import axios from 'axios';
 import Spinner from '../../components/layout/Spinner';
 import { Link } from 'react-router-dom';
 import '../App/App.css';
+import Repos from '../Repos/Repos';
 
 class UserInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
       user: {},
+      repos: [],
       loading: true
     };
   }
@@ -19,8 +21,12 @@ class UserInfo extends Component {
 
     this.setState({ loading: true });
 
+    //Getting User data
     const res = await axios(`https://api.github.com/users/${login}`);
-    this.setState({ user: res.data, loading: false });
+    const repoRequest = await axios(
+      `https://api.github.com/users/${login}/repos?per_page=5&sort=created:asc`
+    );
+    this.setState({ user: res.data, repos: repoRequest.data, loading: false });
   }
 
   render() {
@@ -48,7 +54,7 @@ class UserInfo extends Component {
       return <Spinner />;
     } else {
       return (
-        <Fragment>
+        <div className='user-container'>
           <Link to='/' className='btn btn-light'>
             Back to Search
           </Link>
@@ -81,7 +87,9 @@ class UserInfo extends Component {
               </div>
             </div>
           </header>
-        </Fragment>
+
+          <Repos repos={this.state.repos} />
+        </div>
       );
     }
   }
