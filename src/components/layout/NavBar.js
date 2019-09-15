@@ -1,24 +1,33 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-const NavBar = () => {
-    return(
-        <div>
-            <nav className="navbar is-info" role="navigation" aria-label="main navigation">
-            <div className="nav-brand">
-                Github 
-            </div>
-            
-            <div className="navbar-end">
-
-                <Link className="navbar-item" to="/users"> Top Users </Link>
-
-                <Link className="navbar-item" to="/about"> About </Link>
-
-            </div>
-            </nav>     
-        </div>
-    );
+const Navbar = ({ icon, title }) => {
+  return (
+    <nav className='navbar bg-primary'>
+      <h1>
+        <i className={icon} /> {title}
+      </h1>
+      <ul>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/about'>About</Link>
+        </li>
+      </ul>
+    </nav>
+  );
 };
 
-export default NavBar;
+Navbar.defaultProps = {
+  title: 'Github Explorer',
+  icon: 'fab fa-github'
+};
+
+Navbar.propTypes = {
+  icon: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
+};
+
+export default Navbar;
