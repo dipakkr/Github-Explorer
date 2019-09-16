@@ -96,7 +96,7 @@ header .profile-name p {
 
 /* START OF Footer */
 .footer {
-  position: fixed;
+  position: inherit;
   left: 0;
   bottom: 0;
   margin-top: 20px;
@@ -120,6 +120,18 @@ header .profile-name p {
 }
 
 /* END OF FOOTER */
+
+/* Repo Item*/
+.repo-item {
+  border: 1px solid #e1e1e1;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.repo-item .repo-desc {
+  font-size: 14px;
+  color: #888;
+}
 
 /* Text Styles*/
 .x-large {

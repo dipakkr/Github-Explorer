@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import Spinner from '../../components/layout/Spinner';
 import { Link } from 'react-router-dom';
@@ -24,7 +24,7 @@ class UserInfo extends Component {
     //Getting User data
     const res = await axios(`https://api.github.com/users/${login}`);
     const repoRequest = await axios(
-      `https://api.github.com/users/${login}/repos?per_page=5&sort=created:asc`
+      `https://api.github.com/users/${login}/repos?per_page=5&affiliation=owner`
     );
     this.setState({ user: res.data, repos: repoRequest.data, loading: false });
   }
@@ -87,6 +87,10 @@ class UserInfo extends Component {
               </div>
             </div>
           </header>
+
+          <h3 style={{ 'margin-top': '40px', 'margin-bottom': '20px' }}>
+            Trending Repositories{' '}
+          </h3>
 
           <Repos repos={this.state.repos} />
         </div>

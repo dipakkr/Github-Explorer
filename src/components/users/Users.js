@@ -22,8 +22,7 @@ const userStyle = {
   'flex-wrap': 'wrap',
   'justify-content': 'space-around',
   'flex-gap': '2em',
-  margin: '20px',
-  gridGap: '1rem'
+   margin: '20px',
 };
 
 export default Users;

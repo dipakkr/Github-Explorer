@@ -1,57 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import '../../containers/App/App.css';
 
-class Search extends React.Component {
-  state = {
-    text: ''
-  };
-
-  static propTypes = {
-    searchUsers: PropTypes.func.isRequired,
-    clearUsers: PropTypes.func.isRequired,
-    showClear: PropTypes.func.isRequired
-  };
+const Search = ({ searchUsers, clearUser, showClear, setAlert }) => {
+  const [text, setText] = useState('');
 
   // Form submit
-  getQuery = e => {
+  const getQuery = e => {
     e.preventDefault();
-    if (this.state.text === '') {
-      this.props.setAlert('Field is Empty', 'light');
+    if (text === '') {
+      setAlert('Field is Empty', 'light');
     } else {
-      this.props.searchUsers(this.state.text);
-      this.setState({ text: '' });
+      searchUsers(text);
+      setText('');
     }
   };
 
-  updateValue = e => {
-    this.setState({ [e.target.name]: e.target.value });
+  const updateValue = e => {
+    setText(e.target.value);
   };
 
-  clearUser = e => {
-    this.props.clearUsers();
-  };
+  return (
+    <div>
+      <form className='form' onSubmit={getQuery}>
+        <input
+          onChange={updateValue}
+          name='text'
+          type='text'
+          value={text}
+          placeholder='Search . . .'
+        />
+      </form>
 
-  render() {
-    return (
-      <div>
-        <form className='form' onSubmit={this.getQuery}>
-          <input
-            onChange={this.updateValue}
-            name='text'
-            type='text'
-            value={this.state.text}
-            placeholder='Search . . .'
-          />
-        </form>
+      {showClear && (
+        <button className='btn btn-primary' onClick={clearUser}>
+          Clear Users{' '}
+        </button>
+      )}
+    </div>
+  );
+};
 
-        {this.props.showClear && (
-          <button className='btn btn-primary' onClick={this.clearUser}>
-            Clear Users{' '}
-          </button>
-        )}
-      </div>
-    );
-  }
-}
+Search.propTypes = {
+  searchUsers: PropTypes.func.isRequired,
+  clearUsers: PropTypes.func.isRequired,
+  showClear: PropTypes.func.isRequired
+};
+
 export default Search;
