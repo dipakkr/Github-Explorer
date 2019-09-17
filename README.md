@@ -1,4 +1,6 @@
-## Github Web
+## Github Explorer
+
+### Checkout the live app here : https://dipakkr.netlify.com/
 
 ### Tech Stack
 
@@ -7,7 +9,7 @@
 - React Hooks
 - Redux
 
-### Demo - https://dipakkr.netlify.com/
+### Demo
 
 1. Home Page
 
