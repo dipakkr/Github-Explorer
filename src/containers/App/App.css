@@ -48,7 +48,15 @@ img {
   padding: 0 2rem;
 }
 
-/* User Info Container*/
+/* START OF SEARCH CONTAINER */
+
+.search-container .input-search {
+  border-radius: 10px;
+  padding: 10px;
+}
+/* END OF SEARCH CONTAINER */
+
+/* START OF User Info Container*/
 header {
   display: flex;
 }
@@ -94,9 +102,11 @@ header .profile-name p {
   margin-right: 20px;
 }
 
+/* END OF User Info Container*/
+
 /* START OF Footer */
 .footer {
-  position: inherit;
+  position: fixed;
   left: 0;
   bottom: 0;
   margin-top: 20px;

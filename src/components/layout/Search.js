@@ -21,14 +21,15 @@ const Search = ({ searchUsers, clearUser, showClear, setAlert }) => {
   };
 
   return (
-    <div>
+    <div className='search-container'>
       <form className='form' onSubmit={getQuery}>
         <input
+          className='input-search'
           onChange={updateValue}
           name='text'
           type='text'
           value={text}
-          placeholder='Search . . .'
+          placeholder='Type Github Username . . .'
         />
       </form>
 

@@ -6,6 +6,7 @@ import User from '../../containers/UserInfo/UserInfo';
 
 import Home from '../Home/Home';
 import Footer from '../../components/layout/Foooter';
+import About from '../../components/layout/About';
 
 function Blog() {
   return <h2> Blog </h2>;
@@ -24,7 +25,7 @@ function App() {
               path='/user/:login'
               render={props => <User {...props} user={Home.getUser} />}
             />
-            <Route path='/blog' component={Blog} />
+            <Route path='/about' component={About} />
           </Switch>
         </div>
         <Footer />
