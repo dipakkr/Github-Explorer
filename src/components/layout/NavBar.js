@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ icon, title }) => {
   return (
@@ -15,14 +15,17 @@ const Navbar = ({ icon, title }) => {
         <li>
           <Link to='/about'>About</Link>
         </li>
+        <li>
+          <Link to='/about'>Blog</Link>
+        </li>
       </ul>
     </nav>
   );
 };
 
 Navbar.defaultProps = {
-  title: 'Github Explorer',
-  icon: 'fab fa-github'
+  title: "Github Explorer",
+  icon: "fab fa-github"
 };
 
 Navbar.propTypes = {
